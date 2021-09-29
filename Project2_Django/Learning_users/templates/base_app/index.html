@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base_app/base.html' %}
+{% block head_block %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body_block %}
+
+        <h1>Let's save the environment!</h1>
+        <h3>Please join us and share your thoughts, innovative ideas and domestic projects in our blog page</h3>
+        <p></p>
+        <div class="text-center">
+            <h3>Sign Up Here:</h3>
+            <form>
+                <a class=" btn btn-primary" href="{% url 'base_app:register' %}">SignUp</a>
+            </form>
+            </div>
+
+
+{% endblock %}
+

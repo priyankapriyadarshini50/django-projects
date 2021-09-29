@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'basic_app/base.html' %}
+
+{% block head_block %}
+<title>Other Page</title>
+{% endblock %}
+
+{% block body_block %}
+    {% load my_custom_filter %}
+
+    <h1>WELCOME TO OTHER</h1>
+    <h3>{{ text|cut:'hello' }}</h3>
+
+
+{% endblock %}
+

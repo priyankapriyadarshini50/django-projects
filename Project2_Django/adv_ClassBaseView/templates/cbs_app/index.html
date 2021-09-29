@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'cbs_app/base.html' %}
+{% block head_block %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body_block %}
+    <h3>Hello World! THIS IS THE HOME PAGE </h3>
+    <h4>Injected content: {{ injected }}</h4>
+    <h4>{{ new_injected }}</h4>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base_app/base.html' %}
+
+{% block head_block %}
+    <title>Special Page</title>
+{% endblock %}
+
+{% block body_block %}
+
+     <h1>You have logged in, Nice!</h1>
+        <h1>Hi, {{ user.username }}</h1>
+        <h3>Email: {{user.email}}</h3>
+        <h3>ID: {{ user.id }}</h3>
+
+
+
+{% endblock %}
+
+

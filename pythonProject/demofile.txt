@@ -1,0 +1,4 @@
+Opps, I have deleted and overwritten all the contents.
+New content is added to the file.
+This is the first line
+This is the second line

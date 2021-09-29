@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'basic_app/basic_app_base.html'%}
+
+{% block head_block %}
+    <title>School Detail</title>
+{% endblock %}
+
+{% block body_block %}
+    <h3>Welcome to School Detail Page</h3>
+    <h3>School Detail:</h3>
+
+        <p>Name : {{ school_detail.name }}</p>
+        <p>Principal : {{ school_detail.principal }}</p>
+        <p>Location : {{ school_detail.location }}</p>
+        <p>School ID: {{ school_detail.pk}}</p>
+
+        <h3>Student Detail:</h3>
+            {% for student in school_detail.students.all %}
+                <p>{{ student.name }} is {{ student.age }} years old</p>
+            {% endfor %}
+        <p></p>
+        <p><a class="btn btn-warning" href="{% url 'cbs_app:update' pk=school_detail.pk %}">Update</a>
+           <a class="btn btn-danger" href="{% url 'cbs_app:delete' pk=school_detail.pk %}">Delete</a>
+        </p>
+{% endblock %}

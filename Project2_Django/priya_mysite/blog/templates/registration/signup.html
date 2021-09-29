@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% block head_block %}
+    <title>Sign UP</title>
+{% endblock %}
+
+{% block body_block %}
+
+    <h3>Register Here:</h3>
+    <h3>Please fill out the form below:</h3>
+    <form method="POST">
+
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ user_info.as_p }}
+
+        <input type="submit" class="btn btn-secondary" value="Signup">
+    </form>
+
+{% endblock %}

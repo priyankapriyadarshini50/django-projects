@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'basic_app/basic_app_base.html'%}
+
+{% block head_block %}
+    <title>School List</title>
+{% endblock %}
+
+{% block body_block %}
+    <h3>Welcome to the list of schools</h3>
+    <h3>School Names:</h3>
+    <ol>
+        {% for school in schools %}
+        <h5><li><a href="{{ school.pk }}">{{ school.name }}</a></li></h5>
+
+        {% endfor %}
+    </ol>
+{% endblock %}

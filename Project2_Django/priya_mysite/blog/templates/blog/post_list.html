@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+
+{% block head_block %}
+    <title>Post List</title>
+{% endblock %}
+
+{% block body_block %}
+    <div classs="container">
+        <h4>Welcome to Post list</h4>
+        {% for post in post_list %}
+            <div class="post">
+                <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+            </div>
+            <div class="publish">
+                <p>Published On: {{ post.publish_date|date:'D M Y'}}</p>
+                <p>Author: {{ post.author }}</p>
+                <p>Designation: {{post.designation }}</p>
+            </div>
+
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comment.count }}</a>
+
+        {% endfor %}
+    </div>
+{% endblock %}

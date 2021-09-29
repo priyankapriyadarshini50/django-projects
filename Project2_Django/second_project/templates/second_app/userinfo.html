@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users Page</title>
+    <link rel="stylesheet" href="{% static 'static/userinfo_style.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <h1>The users information is given below:</h1>
+    <div class="container-fluid">
+        {% if userinfo_record %}
+        <ol>
+            {% for rec in userinfo_record %}
+            <li>User Information:</li>
+            <ul>
+                <li>First Name:{{ rec.first_name }}</li>
+                <li>Last Name:{{ rec.last_name }}</li>
+                <li>Email:{{ rec.email }}</li>
+                <li>Qualification:{{ rec.qualification }}</li>
+            </ul>
+            {% endfor %}
+        </ol>
+        {% else %}
+                <p>No data available!</p>
+
+        {% endif %}
+    </div>
+
+
+</body>
+</html>

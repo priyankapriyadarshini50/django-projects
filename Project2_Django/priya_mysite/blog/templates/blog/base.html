@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head_block %}
+
+    {% endblock %}
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+    <!--Medium Style Editor-->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+          type="text/css" media="screen" charset="utf-8">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--NAvBAR-->
+    <nav class=" navbar navbar-expand-lg bg-secondary navbar-dark navbar-static-top ">
+        <div class="container techfont">
+            <a class="navbar-brand" href="{% url 'post_list' %}">MyBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav">
+                        <li class="navbar-item">
+                            <a class="nav-link active" href="{% url 'about'%}">About</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="nav-link active" href="{% url 'register' %}">Sign Up</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="nav-link active" href="https://github.com/">Github</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="nav-link active" href="https://au.linkedin.com/">LinkedIn</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
+                            <li class="navbar-item">
+                                <a class="nav-link active" href="{% url 'post_new'%}">New Post</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a class="nav-link active" href="{% url 'post_draft_list' %}">Drafts</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a class="nav-link active" href="#"> Welcome: {{ user.username }}</a>
+                            </li>
+                        {% else %}
+                            <li class="navbar-item">
+                                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+                            </li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+
+        </div>
+    </nav>
+
+
+    <!--CONTENT-->
+
+    <div class="container py-4 loader">
+        <div class="row">
+            <div class="col-md-8">
+
+                {% block body_block %}
+                {% endblock %}
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+
+    </script>
+</body>
+</html>

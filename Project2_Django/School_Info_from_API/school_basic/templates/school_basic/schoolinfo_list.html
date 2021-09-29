@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'school_basic/base.html' %}
+{% block body_block %}
+
+        <h1>This is the list of Schools</h1>
+
+        <ol>
+            {% for school in schoolinfo_list %}
+                <li><h5>Name: {{ school.name }}</h5></li>
+                <ul>
+                    <li>Go to Website: {{ school.website }}</li>
+                    <li>Contact: {{ school.contact_number }}</li>
+                    <li>Languages: {{ school.languages}}</li>
+                    <li>City: {{ school.city }}</li>
+                    <li>Zipcode: {{ school.zip }}</li>
+                </ul>
+            {% endfor %}
+        </ol>
+
+{% endblock %}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'first_app/index_pg.css' %}">
+</head>
+<body>
+    <h1>The dynamic content is displayed below:</h1>
+    <table>
+        <thead>
+            <th>Website Name</th>
+            <th>Date Accessed</th>
+            <th>Topic</th>
+        </thead>
+
+        {% if access_rec %}
+            {% for data in access_rec %}
+            <tr>
+                <td>{{ data.name }}</td>
+                <td>{{ data.date }}</td>
+
+            </tr>
+            {% endfor %}
+        {% else %}
+            <p>No access records are available!</p>
+        {% endif %}
+    </table>
+
+    <table>
+        <thead>
+            <th>Topics</th>
+            <th>WebPage Name</th>
+            <th>WebPage Url</th>
+        </thead>
+        {% if topics %}
+            {% for topic in topics %}
+                <tr>
+                    <td>{{ topic.topic}}</td>
+                    <td>{{topic.name}}</td>
+                    <td>{{ topic.url }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <p>No access records are available!</p>
+        {% endif %}
+    </table>
+
+</body>
+</html>
