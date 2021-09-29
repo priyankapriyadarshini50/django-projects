@@ -90,8 +90,8 @@ DATABASES = {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': True,
         'CLIENT': {
-                'host': 'mongodb+srv://priyankapriyadarshini50:test%401986@priyankagettingstarted.ziuhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-                'name': 'priyanka_sample',
+                'host': 'mongodb+srv://path to database',
+                'name': 'database_name',
                 'authMechanism': 'SCRAM-SHA-1', # For Atlas Cloud
                     }
                 }
